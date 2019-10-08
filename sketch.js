@@ -3,15 +3,15 @@ let black, red, green, blue;
 let ditherType = 'atkinson';
 let threshold = 110;
 let printWidth, printHeight;
-const size = 5;
+const size = 0.8;
 
 function preload() {
-    img = loadImage("img/me1.jpg");
+    img = loadImage("img/me3.jpeg");
 }
 
 function setup() {
     noLoop();
-    pixelDensity(3);
+    pixelDensity(2);
     printWidth = img.width / size;
     printHeight = img.height / size;
     createCanvas(printWidth, printHeight);
@@ -31,17 +31,13 @@ function draw() {
     let greens = extractRGBChannel(img, "green")
     let blues = extractRGBChannel(img, "blue");
     
-    black.fill(100);
-    black.image(dithered, 0, 0, printWidth, printHeight);
+    black.image(dithered, -20, -20, printWidth*1.005, printHeight*1.1005);
 
-    // red.fill(100);
-    // red.image(reds, 0, 0, printWidth, printHeight);
+    red.image(reds, 0, 0, printWidth*1.7, printHeight*1.7);
     
-    // green.fill(100);
-    // green.image(greens, 5, 5, printWidth, printHeight);
+    green.image(greens, 0, 0, printWidth*1.3, printHeight*1.3);
     
-    // blue.fill(100);
-    // blue.image(blues, 0, 0, printWidth, printHeight);
+    blue.image(blues, 0, 0, printWidth, printHeight);
 
     drawRiso();
 }
